@@ -3,7 +3,7 @@
 
 
 # Problem 1
-"""X = float(input('Enter first number: '))
+X = float(input('Enter first number: '))
 Y = float(input('Enter second number: '))
 Z = float(input('Enter third number: '))
 
@@ -55,7 +55,7 @@ else:
     elif output in losers:
         print('Loser!')
     else:
-        print('Points:', output)"""
+        print('Points:', output)
 
 # Problem 3
 hoursWorked = float(input('Hours Worked: '))
