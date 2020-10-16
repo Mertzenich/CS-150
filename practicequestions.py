@@ -99,9 +99,8 @@ def guessCheck(guess, start, stop):
 print(guessCheck(5,0,10))
 #print(guessCheck(input('Enter a number: '), 0, 10))
 
-
-balance = 2500
-
+verify = ''  # Verification status
+balance = 2500  # Starting balance
 
 def pin():
     pin = 4771
@@ -131,20 +130,20 @@ def checkBalance():
 def prompt():
     global verify
     command = input('\nOptions:\nDeposit\nWithdraw\nCheck\nLogout\n\nWhat would you like to do? ')
-    if command == 'Deposit':
+    if command.lower() == 'deposit' or command.lower() == 'd':
         result = deposit(float(input('How much would you like to deposit? ')))
         return result
-    elif command == 'Withdraw':
+    elif command.lower() == 'withdraw' or command.lower() == 'w':
         result = withdraw(float(input('How much would you like to withdraw? ')))
         return result
-    elif command == 'Check':
+    elif command.lower() == 'check' or command.lower() == 'c':
         return checkBalance()
-    elif command == 'Logout':
+    elif command.lower() == 'logout' or command.lower() == 'l':
         verify = ''
-        return 'You have been logged out.'
+        return '\nYou have been logged out.\n'
         
 
-verify = ''
+
 
 def ATM():
     global verify
@@ -156,6 +155,7 @@ def ATM():
     elif verify == True:
         return prompt()
     
-        
+
+
 while True:
-    ATM()
+    print(ATM())
