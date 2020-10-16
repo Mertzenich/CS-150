@@ -5,9 +5,11 @@ def add(num1, num2): # Addition
     answer = num1 + num2
     return answer
 
+
 def sub(num1, num2): # Subtraction
     answer = num1 - num2
     return answer
+
 
 def mult(num1, num2): # Multiplication
     answer = num1 * num2
@@ -18,17 +20,21 @@ def div(num1, num2): # Division
     answer = num1 / num2
     return answer
 
+
 def sqrt(num): # Square Root
     answer = num ** 0.5
     return answer
+
 
 def pwr(num1, num2): # Power
     answer = num1 ** num2
     return answer
 
-def modulus(num1, num2): # Modulo
+
+def modulus(num1, num2):  # Modulo
     answer = num1 % num2
     return answer
+
 
 # Get input and run the appropriate function.
 def problem():
@@ -56,4 +62,4 @@ def problem():
     else:
         return "Did not select appropriate problem type."
 
-print(problem()) # Function Call
+print(problem())  # Function Call
