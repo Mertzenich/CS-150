@@ -4,6 +4,7 @@ from functools import partial
 
 prompt = ''
 
+
 def promptAppend(letter):
     global prompt
     prompt += str(letter)
@@ -23,6 +24,30 @@ def promptSolve():
     answer = eval(prompt)
     buttonAnswer.config(text=str(answer))
     print(answer)
+
+line = ''
+lineAnswer = ''
+
+def resultManager(m, *arg):    # mode, value
+    global line
+    global lineAnswer
+    mode = arg[0]
+
+    if m == 'i':                # insert mode
+        line += mode
+        result.delete(0,END)
+        result.insert(0,line)
+    if m == 'd':                # delete mode
+        line = line[:-mode]
+        result.delete(0,END)
+        result.insert(0,line)
+    if m == 'a':                # answer mode
+        lineAnswer = eval(line)
+        edit = str(line) + '=' + str(lineAnswer)
+        result.delete(0,END)
+        result.insert(0,edit)
+
+
 
 
 app = tk.Tk()
@@ -49,50 +74,60 @@ commandFrame.pack()
 
 promptBox = tk.Label(commandFrame, text="")
 
+
+result = tk.Entry(left)
+result.pack()
+
+
+
+print(line)
+print(lineAnswer)
+
+
 ###
 ### Command Frame
 ###
 
 buttonAnswer = tk.Button(commandFrame, text="=", width=1,
-                          command=partial(promptSolve))
+                          command=partial(resultManager, 'a', None))
 
 
 buttonBackspace = tk.Button(commandFrame, text="X", width=1,
-                          command=partial(promptRemove, 1))
+                          command=partial(resultManager, 'd', 1))
 
 
 buttonZero = tk.Button(mainFrame, text="0",
-                          command=partial(promptAppend, '0'))
+                          command=partial(resultManager, 'i', '0'))
 
 ###
 ### Number Frame 1
 ###
 
 buttonOne = tk.Button(numFrame1, text="1",
-                          command=partial(promptAppend, '1'))
+                          command=partial(resultManager, 'i', '1'))
 
 
 buttonTwo = tk.Button(numFrame1, text="2",
-                          command=partial(promptAppend, '2'))
+                          command=partial(resultManager, 'i', '2'))
 
 
 buttonThree = tk.Button(numFrame1, text="3",
-                          command=partial(promptAppend, '3'))
+                          command=partial(resultManager, 'i', '3'))
 
 ###
 ### Number Frame 2
 ###
 
 buttonFour = tk.Button(numFrame2, text="4",
-                          command=partial(promptAppend, '4'))
+                          command=partial(resultManager, 'i', '4'))
 
 
 buttonFive = tk.Button(numFrame2, text="5",
-                          command=partial(promptAppend, '5'))
+                          command=partial(resultManager, 'i', '5'))
 
 
 buttonSix = tk.Button(numFrame2, text="6",
-                          command=partial(promptAppend, '6'))
+                          command=partial(resultManager, 'i', '6'))
 
 
 ###
@@ -101,34 +136,34 @@ buttonSix = tk.Button(numFrame2, text="6",
 
 
 buttonSeven = tk.Button(numFrame3, text="7",
-                          command=partial(promptAppend, '7'))
+                          command=partial(resultManager, 'i', '7'))
 
 
 buttonEight = tk.Button(numFrame3, text="8",
-                          command=partial(promptAppend, '8'))
+                          command=partial(resultManager, 'i', '8'))
 
 
 buttonNine = tk.Button(numFrame3, text="9",
-                          command=partial(promptAppend, '9'))
+                          command=partial(resultManager, 'i', '9'))
 
 ###
 ### Command Frame
 ###
 
 buttonPlus = tk.Button(commandFrame, text="+", width=1,
-                          command=partial(promptAppend, '+'))
+                          command=partial(resultManager, 'i', '+'))
 
 
 buttonMin = tk.Button(commandFrame, text="-", width=1,
-                          command=partial(promptAppend, '-'))
+                          command=partial(resultManager, 'i', '-'))
 
 
 buttonMul = tk.Button(commandFrame, text="*", width=1,
-                          command=partial(promptAppend, '*'))
+                          command=partial(resultManager, 'i', '*'))
 
 
 buttonDiv = tk.Button(commandFrame, text="/", width=1,
-                          command=partial(promptAppend, '/'))
+                          command=partial(resultManager, 'i', '/'))
 
 
 ###
