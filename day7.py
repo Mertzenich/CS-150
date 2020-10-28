@@ -37,6 +37,10 @@ for x in items:         # Put reversed list into the result string
 
 print(result)           # Print the reversed string
 
+# Part B In Class Solution
+forward2 = int(input('Enter integer to reverse: '))
+x = forward2 % 10
+reverse = reverse*10 + x
 
 # Part C
 
