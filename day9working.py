@@ -39,3 +39,15 @@ testlist = [item for item in range(11) if item % 2 == 0]
 print(testlist)
 
 #print(attendance())
+
+n = '45, 50, 49, 46, 41'
+wds = n.split(', ')
+print(wds)
+
+sum = 0
+for i in wds:
+    sum = sum + int(i)
+
+print(sum)
+
+print(" ".join(wds))
