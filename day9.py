@@ -10,7 +10,7 @@ def palCheck(w):
 
 # Problem 1-4
 
-ls = [3, 9, 2, 1, 9]
+ls = [3, 9, 2, 1, 10]
 
 listSum = sum(ls)
 print(listSum)                  # Problem 1
@@ -49,4 +49,5 @@ def duplicateRemover(start):
     return new
 
 start = ['abc', '1221', 'xyz', 'aba', '1221', 'xyz']
+
 print(duplicateRemover(start))

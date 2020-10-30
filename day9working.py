@@ -31,5 +31,11 @@ def attendance():
         done = input('Are you done? y/N ')
     return result
 
+myList = [item for item in range(6)]
+yourList = [item ** 2 for item in myList]
+print(yourList[1:])
 
-print(attendance())
+testlist = [item for item in range(11) if item % 2 == 0]
+print(testlist)
+
+#print(attendance())
