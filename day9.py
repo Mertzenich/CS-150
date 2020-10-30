@@ -2,12 +2,6 @@
 
 import math
 
-# Palindrome Checker from Problem 8
-def palCheck(w):
-    if w == w[len(w)::-1]:
-        return True
-    return False
-
 # Problem 1-4
 
 ls = [3, 9, 2, 1, 10]
